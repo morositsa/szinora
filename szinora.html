@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by morositsa (http://jsbin.com/bitoto/28/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Színóra">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Szines óra</title>
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+}
+
+#clock {
+  font-family: 'Caveat', cursive;
+  font-size:22rem;
+  margin-top:-17rem;
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes=date.getMinutes();
+  var seconds=date.getSeconds();
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  clockFace=(hours + '-' + minutes + '-' + seconds);
+  document.getElementById('clock').innerHTML = clockFace;
+  var hexColor1 = '#' +  minutes + seconds + hours;
+  var hexColor2 = '#' +  seconds + hours + seconds;
+  document.body.style.background = hexColor1;
+  document.body.style.color = hexColor2;
+  setTimeout(function() {
+    colorClock();
+  }, 100);
+
+}
+colorClock();
+</script>
+</body>
+</html>
